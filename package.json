@@ -1,0 +1,39 @@
+{
+  "name": "mabang-profit-mcp",
+  "version": "0.1.0",
+  "description": "Mabang ERP cost & profit MCP server: reads the Mabang profit report and stock-SKU costs from your logged-in Chrome (read-only, via a small Chrome extension), joins them with live platform sales to flag loss-making products, and looks up orders by trade number. Zero dependencies. 马帮 ERP 成本和利润 MCP：读已登录的马帮利润报表和库存 SKU 成本，和平台实时销量联动找出亏损商品，按交易号查订单。",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mabang",
+    "mabangerp",
+    "erp",
+    "profit",
+    "cost",
+    "accio",
+    "ecommerce"
+  ],
+  "homepage": "https://github.com/mrsxs/mabang-profit-mcp#readme",
+  "bugs": "https://github.com/mrsxs/mabang-profit-mcp/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrsxs/mabang-profit-mcp.git"
+  },
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "mabang-profit-mcp": "bin/mabang-profit-mcp.mjs"
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    "extension/",
+    "scripts/build-extension.mjs"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  }
+}

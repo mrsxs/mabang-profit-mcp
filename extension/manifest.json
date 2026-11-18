@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "马帮利润助手",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "给本机的马帮利润工具（Accio 商品盈亏专家）查马帮利润报表、库存 SKU 成本和订单：在马帮页面里用你已登录的账号只读查询，不改任何数据、不把登录信息拿出浏览器。",
   "background": {
     "service_worker": "background.js",

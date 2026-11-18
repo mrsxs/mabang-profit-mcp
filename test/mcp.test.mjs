@@ -87,3 +87,16 @@ test('rowsFromFile：读 shein_sales 的销量文件，按指定字段取件数'
   const { rmSync } = await import('node:fs');
   rmSync(d, { recursive: true });
 });
+
+test('页面里的查询：马帮说「登录信息已超时，请刷新页面」时返回 retry（调用方会重开页面再试），别的失败照常报错', async () => {
+  const { stockFetch } = await import('../lib/page-fns.mjs');
+  const realFetch = globalThis.fetch;
+  try {
+    globalThis.fetch = async () => ({ text: async () => JSON.stringify({ success: false, message: '操作失败，您的登录信息已超时，请刷新页面后重试' }) });
+    assert.deepEqual(await stockFetch({ value: 'A', rows: 5 }), { retry: '操作失败，您的登录信息已超时，请刷新页面后重试' });
+    globalThis.fetch = async () => ({ text: async () => JSON.stringify({ success: false, message: '参数错误' }) });
+    assert.deepEqual(await stockFetch({ value: 'A', rows: 5 }), { error: '参数错误' });
+  } finally {
+    globalThis.fetch = realFetch;
+  }
+});

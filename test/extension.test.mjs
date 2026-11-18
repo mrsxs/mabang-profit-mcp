@@ -74,7 +74,7 @@ test('扩展后台：常开预开两个页、并发只开一个、复用、白�
   const cfg = JSON.parse(readFileSync(join(dir, 'ext', 'config.json'), 'utf8'));
   assert.deepEqual(JSON.parse(readFileSync(cfgFile, 'utf8')), cfg);
   for (const f of ['manifest.json', 'background.js', 'popup.html', 'popup.js', 'page-fns.js', 'config.json']) readFileSync(join(dir, 'ext', f));
-  assert.equal(JSON.parse(readFileSync(join(dir, 'ext', 'manifest.json'), 'utf8')).version, '0.3.0');
+  assert.equal(JSON.parse(readFileSync(join(dir, 'ext', 'manifest.json'), 'utf8')).version, '0.3.1');
   cfg.port = 47000 + Math.floor(Math.random() * 900);
   const hub = new Hub(cfg, { pollHoldMs: 300 });
   assert.equal(await hub.start(), true);
